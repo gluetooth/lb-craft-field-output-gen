@@ -12,8 +12,9 @@
 
 Node.js v16+
 
+```
 npm install inquirer chalk prettier
-
+```
 inquirer → for prompts
 chalk → for terminal colors
 prettier → for formatting Liquid output
@@ -31,7 +32,9 @@ craft-field-to-liquid.js
 
 ### Run the tool
 
+```
 node craft-field-to-liquid.js
+```
 
 ### Follow the prompts
 
