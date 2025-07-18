@@ -21,9 +21,11 @@ prettier → for formatting Liquid output
 
 Ensure the package.json includes:
 
+```
 {
   "type": "module"
 }
+```
 
 ### Place your Craft field export JSON file in the same folder.
 
