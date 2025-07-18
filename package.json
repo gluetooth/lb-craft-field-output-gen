@@ -1,0 +1,29 @@
+{
+  "name": "lb-craft-field-output-gen",
+  "version": "1.0.0",
+  "description": "Node.js v16+",
+  "main": "lb-craft-field-output-gen.js",
+  "type": "module",
+  "scripts": {
+    "start": "node craft-field-to-liquid.js"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "chalk": "^5.4.1",
+    "inquirer": "^12.7.0",
+    "prettier": "^3.6.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gluetooth/lb-craft-field-output-gen.git"
+  },
+  "keywords": ["craftcms", "liquid", "generator", "fields", "matrix"],
+  "author": "Lee Boyce",
+  "license": "",
+  "bugs": {
+    "url": "https://github.com/gluetooth/lb-craft-field-output-gen/issues"
+  },
+  "homepage": "https://github.com/gluetooth/lb-craft-field-output-gen#readme"
+}

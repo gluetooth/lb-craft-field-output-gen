@@ -1,0 +1,4 @@
+node_modules/
+output.liquid
+.env
+.DS_Store
