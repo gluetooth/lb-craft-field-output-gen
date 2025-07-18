@@ -217,9 +217,8 @@ function generateSnippet(field) {
       return `<!-- Unknown field type: ${type} -->`;
   }
 }
-
 async function main() {
-  console.log(chalk.bold.cyan("\n🧠 Craft Field → Liquid Generator\n"));
+  console.log(chalk.bold.cyan("\n🧠 Craft Field → Twig Generator\n"));
 
   const { filePath } = await inquirer.prompt([
     {
@@ -244,7 +243,7 @@ async function main() {
     {
       type: "confirm",
       name: "generate",
-      message: "\nGenerate Liquid + HTML snippets?",
+      message: "\nGenerate Twig + HTML snippets?",
       default: true
     }
   ]);
@@ -260,10 +259,10 @@ async function main() {
 
   const formatted = await prettier.format(rawOutput, { parser: "html" });
 
-  const outPath = path.join(process.cwd(), "output.liquid");
+  const outPath = path.join(process.cwd(), "output.twig");
 
   fs.writeFileSync(outPath, formatted, "utf8");
-  console.log(chalk.blue(`\n✅ Snippets saved to: ${chalk.underline(outPath)}\n`));
+  console.log(chalk.blue(`\n✅ Twig snippets saved to: ${chalk.underline(outPath)}\n`));
 }
 
 main();

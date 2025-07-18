@@ -5,7 +5,7 @@
 - Parses **all core Craft CMS 5 field types**
 - Outputs 
     - Summary of field names, labels and types
-    - **formatted Liquid + HTML**
+    - **formatted Twig + HTML**
 - Handles **Matrix fields** with subfield rendering
 - Adds useful fallback comments and conditions
 - Output formatted with **Prettier**
@@ -14,8 +14,8 @@
 
 #### Clone the repo
 ```
-git clone https://github.com/gluetooth/craft-liquid-generator.git
-cd craft-liquid-generator
+git clone https://github.com/gluetooth/craft-twig-generator.git
+cd craft-twig-generator
 ```
 #### Install dependencies
 ```
@@ -29,7 +29,7 @@ npm start
 
 1. Enter your file name (e.g. field-export.json)
 2. Confirm generation
-3. Done! (The HTML/Liquid snippets will be saved to output.liquid)
+3. Done! (The HTML/Twig snippets will be saved to output.twig)
 
 ---
 ### Dependencies
@@ -41,7 +41,7 @@ npm install inquirer chalk prettier
 ```
 - inquirer → for prompts
 - chalk → for terminal colors
-- prettier → for formatting Liquid output
+- prettier → for formatting Twig output
 
 Ensure the package.json includes:
 
@@ -54,16 +54,16 @@ Ensure the package.json includes:
 ### Place your Craft field export JSON file in the same folder.
 
 - field-export.json
-- craft-field-to-liquid.js
+- craft-field-to-Twig.js
 
 ### Run the tool
 
 ```
-node craft-field-to-liquid.js
+node craft-field-to-Twig.js
 ```
 
 ### Follow the prompts
 
 1. Enter your file name (e.g. field-export.json)
 2. Confirm generation
-3. Done! (The HTML/Liquid snippets will be saved to output.liquid)
+3. Done! (The HTML/Twig snippets will be saved to output.Twig)

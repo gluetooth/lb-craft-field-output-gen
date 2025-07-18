@@ -5,7 +5,7 @@
   "main": "lb-craft-field-output-gen.js",
   "type": "module",
   "scripts": {
-    "start": "node craft-field-to-liquid.js"
+    "start": "node craft-field-to-twig.js"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -19,7 +19,7 @@
     "type": "git",
     "url": "git+https://github.com/gluetooth/lb-craft-field-output-gen.git"
   },
-  "keywords": ["craftcms", "liquid", "generator", "fields", "matrix"],
+  "keywords": ["craftcms", "twig", "generator", "fields", "matrix"],
   "author": "Lee Boyce",
   "license": "",
   "bugs": {
