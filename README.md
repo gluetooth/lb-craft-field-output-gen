@@ -10,6 +10,18 @@
 - Adds useful fallback comments and conditions
 - Output formatted with **Prettier**
 
+### Quickstart
+
+#### Clone the repo
+git clone https://github.com/your-username/craft-liquid-generator.git
+cd craft-liquid-generator
+
+#### Install dependencies
+npm install
+
+#### Run the tool
+npm start
+
 ### Dependencies
 
 Node.js v16+
