@@ -13,15 +13,25 @@
 ### Quickstart
 
 #### Clone the repo
+```
 git clone https://github.com/gluetooth/craft-liquid-generator.git
 cd craft-liquid-generator
-
+```
 #### Install dependencies
+```
 npm install
-
+```
 #### Run the tool
+```
 npm start
+```
+### Follow the prompts
 
+1. Enter your file name (e.g. field-export.json)
+2. Confirm generation
+3. Done! (The HTML/Liquid snippets will be saved to output.liquid)
+
+---
 ### Dependencies
 
 Node.js v16+
