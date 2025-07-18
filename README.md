@@ -13,7 +13,7 @@
 ### Quickstart
 
 #### Clone the repo
-git clone https://github.com/your-username/craft-liquid-generator.git
+git clone https://github.com/gluetooth/craft-liquid-generator.git
 cd craft-liquid-generator
 
 #### Install dependencies
