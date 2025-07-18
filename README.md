@@ -29,8 +29,8 @@ Ensure the package.json includes:
 
 ### Place your Craft field export JSON file in the same folder.
 
-field-export.json
-craft-field-to-liquid.js
+- field-export.json
+- craft-field-to-liquid.js
 
 ### Run the tool
 
