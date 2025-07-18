@@ -38,7 +38,7 @@ function getFieldTypeName(type) {
   return map[type] || type;
 }
 
-function renderSubfield(handle, type) {
+function renderSubfield(handle, type, fieldObject = null) {
   switch (type) {
     case "craft\\fields\\PlainText":
     case "craft\\fields\\Number":
@@ -79,23 +79,41 @@ function renderSubfield(handle, type) {
       </ul>
     {% endif %}`;
 
+    case "craft\\fields\\Matrix":
+      if (fieldObject) {
+        // Handle nested matrix
+        const nestedMatrixField = {
+          ...fieldObject,
+          handle: `block.${handle}`
+        };
+        const matrixOutput = generateMatrixSnippet(nestedMatrixField);
+        return matrixOutput.replace(/entry\./g, ""); // Remove "entry." for nested blocks
+      } else {
+        return `<!-- Matrix field '${handle}' detected but structure unknown -->`;
+      }
+
     default:
       return `    {{ block.${handle} }}`;
   }
 }
 
-
 function generateMatrixSnippet(field) {
   const h = field.handle;
   const blocks = field.settings?.entryTypes || [];
 
-  const snippets = blocks.map(block => {
+  const snippets = blocks.map((block) => {
     const blockHandle = block.handle;
-    const elements = block.fieldLayout?.tabs?.flatMap(tab => tab.elements) || [];
+    const elements =
+      block.fieldLayout?.tabs?.flatMap((tab) => tab.elements) || [];
 
     const fields = elements
-      .filter(el => el.type === "craft\\fieldlayoutelements\\CustomField" && el.fieldUid && el.handle)
-      .map(el => renderSubfield(el.handle, el.fieldType));
+      .filter(
+        (el) =>
+          el.type === "craft\\fieldlayoutelements\\CustomField" &&
+          el.fieldUid &&
+          el.handle
+      )
+      .map((el) => renderSubfield(el.handle, el.fieldType, el));
 
     return `
   {% if block.type == '${blockHandle}' %}
@@ -104,10 +122,9 @@ ${fields.join("\n")}
   {% endif %}`;
   });
 
-  return `{% for block in entry.${h} %}${snippets.join("\n")}
+  return `{% for block in ${h} %}${snippets.join("\n")}
 {% endfor %}`;
 }
-
 
 function generateSnippet(field) {
   const h = field.handle;
@@ -217,6 +234,7 @@ function generateSnippet(field) {
       return `<!-- Unknown field type: ${type} -->`;
   }
 }
+
 async function main() {
   console.log(chalk.bold.cyan("\n🧠 Craft Field → Twig Generator\n"));
 
@@ -225,7 +243,7 @@ async function main() {
       type: "input",
       name: "filePath",
       message: "Path to exported Craft JSON file:",
-      validate: input => fs.existsSync(input) || "❌ File not found."
+      validate: (input) => fs.existsSync(input) || "❌ File not found."
     }
   ]);
 
@@ -254,7 +272,7 @@ async function main() {
   }
 
   const rawOutput = json
-    .map(f => `<!-- ${f.name} (${f.handle}) -->\n` + generateSnippet(f))
+    .map((f) => `<!-- ${f.name} (${f.handle}) -->\n` + generateSnippet(f))
     .join("\n\n");
 
   const formatted = await prettier.format(rawOutput, { parser: "html" });

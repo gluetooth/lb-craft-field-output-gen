@@ -1,5 +1,5 @@
 node_modules/
-output.liquid
+output.twig
 .env
 .DS_Store
 example.json
