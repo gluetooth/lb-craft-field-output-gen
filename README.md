@@ -4,8 +4,8 @@
 ### Features
 - Parses **all core Craft CMS 5 field types**
 - Outputs 
-- - Summary of field names, labels and types
-- - **formatted Liquid + HTML**
+    - Summary of field names, labels and types
+    - **formatted Liquid + HTML**
 - Handles **Matrix fields** with subfield rendering
 - Adds useful fallback comments and conditions
 - Output formatted with **Prettier**
